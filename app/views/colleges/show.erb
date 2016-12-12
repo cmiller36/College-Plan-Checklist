@@ -1,1 +1,17 @@
-show.erb
+
+
+<%= @college.name %><br><br>
+
+<form action="/colleges/<%= @college.id %>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete College" name="delete" class="btn btn-danger btn-xs">
+</form>
+  <br>
+
+  <a href="/colleges/<%=@college.id%>/edit">Edit College </a><br><br>
+
+  <a href="/colleges"><%= current_user.username%> Return to your colleges</a>
+
+ <% if flash[:message] != nil %>
+    <div class="alert"><%= flash.now[:message] %></div>
+<% end %>
