@@ -52,8 +52,7 @@ class UsersController < ApplicationController
       @user = User.find_by(id: params[:id])
       c = College.find_by(id: params[:id])
       c.name = params[:name]
-      c.pay_app_fee = params[:pay_app_fee] ? 1 : 0
-      c.submit_application = params[:submit_application] ? 1 : 0
+      c.complete = params[:complete] ? 1 : 0
       c.college_visit = params[:college_visit]
       erb :'users/my_profile'
     else
