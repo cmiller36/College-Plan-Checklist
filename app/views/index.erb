@@ -1,1 +1,3 @@
-index.erb
+<% if flash[:message] != nil %>
+    <div class="alert"><%= flash.now[:message] %></div>
+<% end %>
