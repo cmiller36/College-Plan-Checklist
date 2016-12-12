@@ -20,7 +20,7 @@ class CollegesController < ApplicationController
   post '/colleges' do
     if params[:name] != ""
       @user = current_user
-      @college = College.create(name: params[:college][:name], pay_app_fee: params[:college][:pay_app_fee], submit_application: params[:college][:submit_applicaiton], college_visit: params[:college][:college_visit], user_id:@user.id)
+      @college = College.create(name: params[:college][:name], complete: params[:college][:complete], college_visit: params[:college][:college_visit], user_id:@user.id)
       @college.user_id =  @user.id
       @college.save
       redirect '/colleges'
@@ -50,7 +50,7 @@ class CollegesController < ApplicationController
 
     patch '/colleges/:id' do
         @college = College.find(params[:id])
-        @college.update(name: params[:college][:name], pay_app_fee: params[:college][:pay_app_fee], submit_application: params[:college][:submit_applicaiton], college_visit: params[:college][:college_visit])
+        @college.update(name: params[:college][:name], complete: params[:college][:complete], college_visit: params[:college][:college_visit])
         if @college.save
             redirect to '/colleges'
         else

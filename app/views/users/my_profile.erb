@@ -16,8 +16,8 @@
 <% current_user.colleges.each do |college| %>
 <tr style="text-align:left;">
 <td><a href="/colleges/<%= college.id %>"><%= college.name %></a></td>
-<td><input type="checkbox" id="college[pay_app_fee]" name="college[pay_app_fee]" value="<%= college.pay_app_fee %>" <%= "checked" if college.pay_app_fee %>/></td>
-<td><input type="checkbox" id="college[submit_application]" name="college[submit_application]" value="<%= college.submit_application %>" <%= "checked" if college.submit_application %>/></td>
+<td><input type="checkbox" id="college[pay_app_fee]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
+<td><input type="checkbox" id="college[submit_application]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
 <td><%= college.college_visit.strftime("%a %m-%d-%Y") %></td>
 <td><a href="/colleges/<%= college.id %>/edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
 </tr>

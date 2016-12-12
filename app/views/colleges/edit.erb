@@ -5,10 +5,10 @@
     <input type="text" value="<%= @college.name %>" name="college[name]" id="college[name]"><br>
 
     <label for="college_pay_app_fee">Pay College Application Fee?</label>
-    <input type="checkbox" name="college[pay_app_fee][]" <%= "checked" if @college.pay_app_fee %>><br>
+    <input type="checkbox" name="college[complete][]" <%= "checked" if @college.complete %>><br>
 
     <label for="college_submit_application">Submit College Application?</label>
-    <input type="checkbox" name="college[submit_application][]" <%= "checked" if @college.submit_application %>><br>
+    <input type="checkbox" name="college[complete][]" <%= "checked" if @college.complete %>><br>
 
     <label for="college_college_visit">College Visit Date</label>
     <input type="date" data-date-format="mm/dd/yyyy" value="college[college_visit]" name="college[college_visit]">
