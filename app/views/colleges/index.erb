@@ -1,1 +1,6 @@
-index.erb
+<h3>All colleges you are applying to:</h3>
+<ul>
+<% current_user.colleges.each do |college| %>
+<li><a href="/colleges/<%=college.id%>"><%= college.name %></a></li>
+<% end %> 
+</ul>
