@@ -41,12 +41,8 @@
           <% if logged_in? %>
             <li><a href="/users/<%= current_user.id %>">My Profile</a></li>
             <li><a href="/colleges">My Colleges</a></li>
-            <li class="dropdown">
-                <a data-toggle="dropdown" class="dropdown-toggle" href="#">Notes<b class="caret"></b></a>
-                <ul role="menu" class="dropdown-menu">
-                    <li><a href="#">My Notes</a></li>
-                </ul>
-            </li>
+           
+            <li><a href="/notes">My Notes</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a id="welcome">Welcome, <%= current_user.username.titleize %></a></li>
