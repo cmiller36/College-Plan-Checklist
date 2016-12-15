@@ -31,4 +31,24 @@ class NotesController < ApplicationController
     end
   end
 
+  get '/notes/:id' do
+    if logged_in?
+      @note = Note.find(params[:id])
+      erb :'notes/show'
+    else
+      redirect to '/login'
+    end
+  end
+
+  delete '/colleges/:id/delete' do
+        @note = Note.find(params[:id])
+        if @note.user_id == current_user.id
+          @note.delete
+          flash[:message] = "Your note has been successfully deleted"
+          redirect to '/notes'
+        else
+          redirect to '/login'
+        end
+    end
+
 end
