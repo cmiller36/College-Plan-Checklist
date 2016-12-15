@@ -7,21 +7,21 @@
       <table class="table table-striped table-hover">
 
         <tr class="info">
-              <th><h5>Name</h5></th>
+              <th><h5>College Name</h5></th>
               <th><h5>Submit Application</h5></th>
               <th><h5>Pay Application Fee</h5></th>
               <th><h5>Request Transcripts</h5></th>
               <th><h5>Pay Transcript Fee</h5></th>
               <th><h5>Request ACT/SAT Score</h5></th>
               <th><h5>Pay Score Request Fee</h5></th>
-               <th><h5>Request Recommendation Letters</h5></th>
+              <th><h5>Request Rec Letters</h5></th>
               <th><h5>College Visit</h5></th>
               <th><h4></h4></th>
               
         </tr>
 
             <% current_user.colleges.each do |college| %>
-            <tr style="text-align:left;">
+            <tr>
             <td><a href="/colleges/<%= college.id %>"><%= college.name %></a></td>
             <td><input type="checkbox" id="college[submit_application]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
 
