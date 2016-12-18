@@ -1,15 +1,15 @@
 
 <h3><%= current_user.username.titleize %>'s Notes:</h3>
 <br><br>
-<ul>
+<ul class="list-unstyled">
 <% current_user.notes.each do |note| %>
-  <li><a href="/notes/<%=note.id%>"><%= note.title %></a>:
-  <%= note.content %></li>
+  <li><h3><a href="/notes/<%=note.id%>"><%= note.title %></a>:
+  <%= note.content %></h3></li>
 <% end %> 
 </ul>
 <br />
 <br />
 <form action="<%="/notes/new"%>" method="GET">
   <i class="fa fa-plus" aria-hidden="true"></i>
-  <input type="submit" value="Create a Note">
+  <button type="submit" class="btn btn-primary">Create a Note</button>
 </form>

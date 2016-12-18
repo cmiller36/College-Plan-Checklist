@@ -1,6 +1,6 @@
 <h3>All colleges you are applying to:</h3>
-<ul>
+<ul class="list-unstyled">
 <% current_user.colleges.each do |college| %>
-<li><a href="/colleges/<%=college.id%>"><%= college.name %></a></li>
+<li><h3><a href="/colleges/<%=college.id%>"><%= college.name %></a></h3></li>
 <% end %> 
 </ul>
