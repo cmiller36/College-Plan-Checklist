@@ -1,6 +1,6 @@
 
 
-<%= @college.name %><br><br>
+<h3><%= @college.name %><br><br></h3>
 
 <form action="/colleges/<%= @college.id %>/delete" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
