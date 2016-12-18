@@ -4,9 +4,10 @@
 <% end %>
 
 <h3><%= @user.username.titleize %>'s College Checklist:</h3>
-      <table class="table table-striped table-hover">
-
-        <tr class="info">
+      
+<table class="table table-hover">
+  <thead>
+    <tr class="info">
               <th><h5>College Name</h5></th>
               <th><h5>Submit Application</h5></th>
               <th><h5>Pay Application Fee</h5></th>
@@ -16,34 +17,34 @@
               <th><h5>Pay Score Request Fee</h5></th>
               <th><h5>Request Rec Letters</h5></th>
               <th><h5>College Visit</h5></th>
-              <th><h4></h4></th>
-              
-        </tr>
+              <th><h4></h4></th>          
+    </tr>
+  </thead>
+  <tbody>
+        <% current_user.colleges.each do |college| %>
+        <tr>
+            <td data-title="College Name"><a href="/colleges/<%= college.id %>"><%= college.name %></a></td>
+            <td data-title="Submit Application"><input type="checkbox" id="college[submit_application]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
 
-            <% current_user.colleges.each do |college| %>
-            <tr>
-            <td><a href="/colleges/<%= college.id %>"><%= college.name %></a></td>
-            <td><input type="checkbox" id="college[submit_application]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
+            <td data-title="Pay Application Fee"><input type="checkbox" id="college[pay_app_fee]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
 
-            <td><input type="checkbox" id="college[pay_app_fee]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
+            <td data-title="Request Transcripts"><input type="checkbox" id="college[request_transcripts]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
 
-            <td><input type="checkbox" id="college[request_transcripts]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
+            <td data-title="Pay Transcript Fee"><input type="checkbox" id="college[pay_transcript_fee]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
 
-            <td><input type="checkbox" id="college[pay_transcript_fee]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
+            <td data-title="Request ACT/SAT Score"><input type="checkbox" id="college[request_scores]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
 
-            <td><input type="checkbox" id="college[request_scores]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
+            <td data-title="Pay Score Request Fee"><input type="checkbox" id="college[pay_score_request_fee]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
 
-            <td><input type="checkbox" id="college[pay_score_request_fee]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
-
-            <td><input type="checkbox" id="college[request_rec_letters]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
-            <td><%= college.college_visit.strftime("%a %m-%d-%Y") if college.college_visit %></td>
+            <td data-title="Request Rec Letters"><input type="checkbox" id="college[request_rec_letters]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
+            <td data-title="College Visit"><%= college.college_visit.strftime("%a %m-%d-%Y") if college.college_visit %></td>
             <td><a href="/colleges/<%= college.id %>/edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-            </tr>
-            <% end %>
-      </table>
+        </tr>
+        <% end %>
+  </tbody>
+</table>
 
-
-<br><br>
+<br>
 <form action="<%="/colleges/new"%>" method="GET">
   <i class="fa fa-plus" aria-hidden="true"></i>
   <button type="submit" class="btn btn-primary">Add Another School</button>
