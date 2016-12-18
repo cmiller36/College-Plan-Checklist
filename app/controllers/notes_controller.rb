@@ -40,7 +40,7 @@ class NotesController < ApplicationController
     end
   end
 
-  delete '/colleges/:id/delete' do
+  delete '/notes/:id/delete' do
         @note = Note.find(params[:id])
         if @note.user_id == current_user.id
           @note.delete
