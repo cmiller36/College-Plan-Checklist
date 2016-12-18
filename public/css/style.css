@@ -1,9 +1,7 @@
-
-
 body {
     font-size: 16px;
     font-weight: 300;
-    color: #888;
+    color: #1a242f;
     line-height: 30px;
     text-align: center;
     background: url("images/grad-day.jpg") no-repeat center center fixed;
@@ -22,8 +20,9 @@ img {
   top:-100%; bottom:-100%;
   left:-100%; right:-100%;
   margin:auto;
+  z-index: -1;
+  opacity: .6;
 }
-
 
 .fixed-nav-bar {
   position: fixed;
@@ -34,30 +33,23 @@ img {
   height: 50px;
 }
 
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th, td {
+  padding: 0.25rem;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+
+
+table tr:nth-child(even) {background-color: #695A69}
+table tr:nth-child(odd) {background-color: #695A69}
+
+
+
 /***** Media queries *****/
 
-@media (min-width: 992px) and (max-width: 1199px) {}
 
-@media (min-width: 768px) and (max-width: 991px) {
-
-  .row.col-md-offset-3 {
-    width: 100%;
-  }
-}
-
-@media (max-width: 767px) {
-
-  .row.col-md-offset-3 {
-    margin-left: 100px;
-  }
-
-  .middle-border { min-height: auto; margin: 65px 30px 0 30px; border-right: 0;
-            border-top: 1px solid #fff; border-top: 1px solid rgba(255, 255, 255, 0.6); }
-
-}
-
-@media (max-width: 415px) {
-
-  h1, h2 { font-size: 32px; }
-
-}
