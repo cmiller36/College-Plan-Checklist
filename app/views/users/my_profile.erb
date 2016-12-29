@@ -24,19 +24,20 @@
         <% current_user.colleges.each do |college| %>
         <tr>
             <td data-title="College Name"><a href="/colleges/<%= college.id %>"><%= college.name %></a></td>
-            <td data-title="Submit Application"><input type="checkbox" id="college[submit_application]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
+            <td data-title="Submit Application"><input type="checkbox" id="college[submit_application]" name="college[submit_application][]" value="<%= college.submit_application %>" <%= "checked" if college.submit_application? %>/></td>
 
-            <td data-title="Pay Application Fee"><input type="checkbox" id="college[pay_app_fee]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
+            <td data-title="Pay Application Fee"><input type="checkbox" id="college[pay_app_fee]" name="college[pay_app_fee][]" value="<%= college.pay_app_fee %>" <%= "checked" if college.pay_app_fee? %>/></td>
 
-            <td data-title="Request Transcripts"><input type="checkbox" id="college[request_transcripts]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
+            <td data-title="Request Transcripts"><input type="checkbox" id="college[request_transcripts]" name="college[request_transcripts][]" value="<%= college.request_transcripts %>" <%= "checked" if college.request_transcripts? %>/></td>
 
-            <td data-title="Pay Transcript Fee"><input type="checkbox" id="college[pay_transcript_fee]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
+            <td data-title="Pay Transcript Fee"><input type="checkbox" id="college[pay_transcript_fee]" name="college[pay_transcript_fee][]" value="<%= college.pay_transcript_fee %>" <%= "checked" if college.pay_transcript_fee? %>/></td>
 
-            <td data-title="Request ACT/SAT Score"><input type="checkbox" id="college[request_scores]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
+            <td data-title="Request ACT/SAT Score"><input type="checkbox" id="college[request_scores]" name="college[request_scores][]" value="<%= college.request_scores %>" <%= "checked" if college.request_scores? %>/></td>
 
-            <td data-title="Pay Score Request Fee"><input type="checkbox" id="college[pay_score_request_fee]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
+            <td data-title="Pay Score Request Fee"><input type="checkbox" id="college[pay_score_request_fee]" name="college[pay_score_request_fee][]" value="<%= college.pay_score_request_fee %>" <%= "checked" if college.pay_score_request_fee? %>/></td>
 
-            <td data-title="Request Rec Letters"><input type="checkbox" id="college[request_rec_letters]" name="college[complete][]" value="<%= college.complete %>" <%= "checked" if college.complete %>/></td>
+            <td data-title="Request Rec Letters"><input type="checkbox" id="college[request_rec_letters]" name="college[request_rec_letters][]" value="<%= college.request_rec_letters %>" <%= "checked" if college.request_rec_letters? %>/></td>
+            
             <td data-title="College Visit"><%= college.college_visit.strftime("%a %m-%d-%Y") if college.college_visit %></td>
             <td><a href="/colleges/<%= college.id %>/edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
         </tr>

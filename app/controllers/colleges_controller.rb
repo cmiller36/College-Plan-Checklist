@@ -20,7 +20,8 @@ class CollegesController < ApplicationController
   post '/colleges' do
     if params[:name] != ""
       @user = current_user
-      @college = College.create(name: params[:college][:name], complete: params[:college][:complete], college_visit: params[:college][:college_visit], user_id:@user.id)
+      @college = College.create(name: params[:college][:name], submit_application: params[:college][:submit_application], pay_app_fee: params[:college][:pay_app_fee], request_transcripts: params[:college][:request_transcripts],
+        pay_transcript_fee: params[:college][:pay_transcript_fee], request_scores: params[:college][:request_scores], pay_score_request_fee: params[:college][:pay_score_request_fee], request_rec_letters: params[:college][:request_rec_letters], college_visit: params[:college][:college_visit], user_id:@user.id)
       @college.user_id =  @user.id
       @college.save
       redirect '/colleges'
@@ -50,7 +51,8 @@ class CollegesController < ApplicationController
 
     patch '/colleges/:id' do
         @college = College.find(params[:id])
-        @college.update(name: params[:college][:name], complete: params[:college][:complete], college_visit: params[:college][:college_visit])
+        @college.update(name: params[:college][:name], submit_application: params[:college][:submit_application], pay_app_fee: params[:college][:pay_app_fee], request_transcripts: params[:college][:request_transcripts],
+        pay_transcript_fee: params[:college][:pay_transcript_fee], request_scores: params[:college][:request_scores], pay_score_request_fee: params[:college][:pay_score_request_fee], request_rec_letters: params[:college][:request_rec_letters], college_visit: params[:college][:college_visit])
         if @college.save
             redirect to '/colleges'
         else
