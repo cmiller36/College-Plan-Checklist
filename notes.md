@@ -5,8 +5,6 @@ Simple checklist of tasks for college-bound users
 Users can add all colleges they are applying to:
   - Check off tasks such as submit application, pay application fee
   - Add college visit date
-
-Other tasks added: (but checkboxes are not working independently!!!)
   - request transcripts from all schools, pay that fee
   - request recommendation letters
   - send test scores ACT/SAT/GRE/GMAT, pay that fee
@@ -26,7 +24,7 @@ College Visit:
 
 Other functions that would be nice:
  - set up alerts
- - add deadline (default December 1st)
+ - add deadline 
  - ex. -you have 15 days before deadline
  - ex. -Don't forget to ask teachers for recommendation letter or pay fee, etc.
 
