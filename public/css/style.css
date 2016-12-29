@@ -21,7 +21,7 @@ img {
   left:-100%; right:-100%;
   margin:auto;
   z-index: -1;
-  opacity: .8;
+  opacity: .9;
 }
 
 .fixed-nav-bar {
@@ -33,6 +33,11 @@ img {
   height: 50px;
 }
 
+.title banner{
+  display: block;
+  text-align: center;
+  vertical-align: baseline;
+}
 form {
   text-align: left;
 }

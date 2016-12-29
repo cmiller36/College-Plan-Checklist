@@ -10,15 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161212162712) do
+ActiveRecord::Schema.define(version: 20161229025618) do
 
   create_table "colleges", force: :cascade do |t|
     t.string   "name"
-    t.boolean  "pay_app_fee",        default: false
-    t.boolean  "submit_application", default: false
+    t.boolean  "pay_app_fee",           default: false
+    t.boolean  "submit_application",    default: false
     t.datetime "college_visit"
-    t.boolean  "complete",           default: false
+    t.boolean  "complete",              default: false
     t.integer  "user_id"
+    t.boolean  "request_transcripts",   default: false
+    t.boolean  "pay_transcript_fee",    default: false
+    t.boolean  "request_scores",        default: false
+    t.boolean  "pay_score_request_fee", default: false
+    t.boolean  "request_rec_letters",   default: false
   end
 
   create_table "notes", force: :cascade do |t|
