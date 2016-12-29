@@ -50,10 +50,6 @@ class UsersController < ApplicationController
   get '/users/:id' do
     if logged_in?
       @user = User.find_by(id: params[:id])
-      c = College.find_by(id: params[:id])
-      c.name = params[:name]
-      c.complete = params[:complete] ? 1 : 0
-      c.college_visit = params[:college_visit]
       erb :'users/my_profile'
     else
       redirect to '/login'
