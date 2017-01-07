@@ -42,7 +42,17 @@
         <ul class="nav navbar-nav">
           <% if logged_in? %>
             <li><a href="/users/<%= current_user.id %>">My Profile</a></li>
-            <li><a href="/colleges">My Colleges</a></li>
+            <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">My Colleges<b class="caret"></b></a>
+                <ul role="menu" class="dropdown-menu">
+                  <% @colleges = College.all.sort_by { |c| c.name } %>
+                  <% current_user.colleges.each do |college| %>
+                  <li><a href="/colleges/<%=college.id %>"><%= "#{college.name}" %></a></li>
+                  <% end %>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="/colleges/new">Add College</a></li>
+                </ul>
+            </li>
            
             <li><a href="/notes">My Notes</a></li>
         </ul>

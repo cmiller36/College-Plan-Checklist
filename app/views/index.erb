@@ -1,3 +1,7 @@
+<% if flash[:message] != nil %>
+    <div class="alert"><%= flash.now[:message] %></div>
+<% end %>
+
 <div class="title">
 <section id="banner">
   <h2>Welcome to College Planning Checklist</h2>
@@ -12,9 +16,5 @@
 </section>
 </div>
 
-
-<% if flash[:message] != nil %>
-    <div class="alert"><%= flash.now[:message] %></div>
-<% end %>
 
 
