@@ -1,14 +1,41 @@
-
 <h3><%= current_user.username.titleize %>'s Notes:</h3>
-<br><br>
-<ul class="list-unstyled">
-<% current_user.notes.each do |note| %>
-  <li><h3><a href="/notes/<%=note.id%>"><%= note.title %></a>:
-  <%= note.content %></h3></li>
-<% end %> 
-</ul>
+
 <br />
-<br />
+
+  <!-- Table -->
+<div>
+  <table class="table table-hover">
+    <thead>
+      <tr class="info">
+              <th><h5>Title</h5></th>
+              <th><h5>Content</h5></th>
+              <th><h4></h4></th>
+              <th><h4></h4></th>          
+      </tr>
+    </thead>
+
+    <tbody>
+        <% current_user.notes.each do |note| %>
+        <tr>
+            <td data-title="Title"><%= note.title %></a></td>
+
+             <td data-title="Content"><%= note.content %></td>
+
+            <td><a href="/notes/<%= note.id %>/edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+
+            <td>
+              <form action="/notes/<%= note.id %>/delete" method="post">
+              <input id="hidden" type="hidden" name="_method" value="delete">
+              <button type="submit" name="delete" class="text-danger"><i class="fa fa-trash" aria-hidden="true"></i>
+              </form>
+            </td>
+
+        </tr>
+        <% end %>
+  </tbody>
+  </table>
+</div>
+
 <form action="<%="/notes/new"%>" method="GET">
   <i class="fa fa-plus" aria-hidden="true"></i>
   <button type="submit" class="btn btn-primary">Create a Note</button>
