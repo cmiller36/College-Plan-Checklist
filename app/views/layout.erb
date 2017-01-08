@@ -53,8 +53,14 @@
                     <li><a href="/colleges/new">Add College</a></li>
                 </ul>
             </li>
-           
-            <li><a href="/notes">My Notes</a></li>
+            <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">My Notes<b class="caret"></b></a>
+                <ul role="menu" class="dropdown-menu">
+                  <li><a href="/notes">All My Notes</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="/notes/new">Create Note</a></li>
+                </ul>
+            </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a id="welcome">Welcome, <%= current_user.username.titleize %></a></li>
