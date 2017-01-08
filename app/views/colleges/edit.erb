@@ -26,6 +26,6 @@
     <input type="checkbox" name="college[request_rec_letters][]" <%= "checked" if @college.request_rec_letters %>><br>
 
     <label for="college_college_visit">College Visit Date</label>
-    <input type="date" data-date-format="mm/dd/yyyy" value="college[college_visit]" name="college[college_visit]">
+    <input type="date" data-date-format="mm/dd/yyyy" value="<%= @college.college_visit %>" name="college[college_visit]">
     <input type="submit" id="submit" value="Edit College">
 </form>
