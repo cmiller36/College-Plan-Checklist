@@ -40,6 +40,21 @@ class NotesController < ApplicationController
     end
   end
 
+  get '/notes/:id/edit' do
+    @note = Note.find(params[:id])
+    erb :'notes/edit'
+  end
+
+  patch '/notes/:id' do
+    @note = Note.find(params[:id])
+    @note.update(title: params[:note][:title], content: params[:note][:content])
+    if @note.save
+      redirect to '/notes'
+    else
+      redirect to '/notes/#{params[:id]}/edit'
+    end
+  end
+
   delete '/notes/:id/delete' do
         @note = Note.find(params[:id])
         if @note.user_id == current_user.id
