@@ -17,6 +17,7 @@
               <th><h5>Pay Score Request Fee</h5></th>
               <th><h5>Request Rec Letters</h5></th>
               <th><h5>College Visit</h5></th>
+              <th><h4></h4></th>
               <th><h4></h4></th>          
     </tr>
   </thead>
@@ -39,7 +40,15 @@
             <td data-title="Request Rec Letters"><input type="checkbox" id="college[request_rec_letters]" name="college[request_rec_letters][]" value="<%= college.request_rec_letters %>" <%= "checked" if college.request_rec_letters? %>/></td>
             
             <td data-title="College Visit"><%= college.college_visit.strftime("%a %m-%d-%Y") if college.college_visit %></td>
+            
             <td><a href="/colleges/<%= college.id %>/edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+
+             <td>
+              <form action="/colleges/<%= college.id %>/delete" method="post">
+              <input id="hidden" type="hidden" name="_method" value="delete">
+              <button type="submit" value="Delete College" name="delete"><i class="fa fa-trash" aria-hidden="true"></i>
+              </form>
+            </td>
         </tr>
         <% end %>
   </tbody>
