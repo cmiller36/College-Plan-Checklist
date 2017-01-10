@@ -53,10 +53,6 @@ th, td {
   border: 1px solid #ccc;
 }
 
-
-table tr:nth-child(even) {background-color: #695A69}
-table tr:nth-child(odd) {background-color: #695A69}
-
 @media only screen and (max-width: 770px) {
   
   /* Force table to not be like tables anymore */
