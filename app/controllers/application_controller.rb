@@ -16,6 +16,7 @@ class ApplicationController < Sinatra::Base
       erb :index
     else
       erb :'users/my_profile'
+    end
   end
 
   helpers do
